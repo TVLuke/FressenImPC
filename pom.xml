@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>CasinoTwitterBot</groupId>
+  <artifactId>CasinoTwitterBot</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>CasinoTwitterBot</name>
+  <description>A Twitter-Bot twittering the food in the Casino fo the UKSH in Lübeck</description>
+  
+     <repositories>
+      <repository>
+         <id>twitter4j.org</id>
+         <name>twitter4j.org Repository</name>
+         <url>http://twitter4j.org/maven2</url>
+         <releases>
+            <enabled>true</enabled>
+         </releases>
+         <snapshots>
+            <enabled>true</enabled>
+         </snapshots>
+      </repository>
+   </repositories>
+   
+  <dependencies>
+	 <dependency>
+		<groupId>joda-time</groupId>
+		<artifactId>joda-time</artifactId>
+		<version>2.1</version>
+	</dependency>
+      <dependency>
+         <groupId>org.twitter4j</groupId>
+         <artifactId>twitter4j-core</artifactId>
+         <version>[3.0,)</version>
+      </dependency>      
+  </dependencies>    
+  <build>
+        <plugins>
+			<plugin>
+		    	<groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-jar-plugin</artifactId>
+		        <version>2.4</version>
+		      </plugin>
+		       <plugin>
+			        <artifactId>maven-assembly-plugin</artifactId>
+			        <configuration>
+			          <descriptorRefs>
+			            <descriptorRef>jar-with-dependencies</descriptorRef>
+			          </descriptorRefs>
+			          <archive>
+			            <manifest>
+			              <mainClass>de.lukeslog.casinobot.TwitterBot</mainClass>
+			            </manifest>
+			          </archive>
+			        </configuration>
+			         <executions>
+			          <execution>
+			            <phase>package</phase>
+			            <goals>
+			              <goal>attached</goal>
+			            </goals>
+			          </execution>
+			        </executions>
+			    </plugin>
+        </plugins>
+    </build>
+</project>
