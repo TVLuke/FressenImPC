@@ -283,7 +283,14 @@ public class TwitterBot implements Runnable
 	 */
 	private String sondermenue(DateTime d)
 	{
-		return "Sondermenü: "+SONDERMENU_URL+kw(d)+".pdf";
+		if(kw(d)>9)
+		{
+			return "Sondermenü: "+SONDERMENU_URL+kw(d)+".pdf";
+		}
+		else
+		{
+			return "Sondermenü: "+SONDERMENU_URL+"0"+kw(d)+".pdf";
+		}
 	}
 
 	/**
